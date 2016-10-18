@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redhouse.dao.EmployeeMapper">
+
+    <resultMap type="com.redhouse.entity.Employee" id="EmployeeMap">
+        <id column="c_id" jdbcType="INTEGER" property="id"/>
+        <result column="c_login_name" jdbcType="VARCHAR" property="loginName"/>
+        <result column="c_password" jdbcType="VARCHAR" property="password"/>
+        <result column="c_user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="c_sex" jdbcType="INTEGER" property="sex"/>
+        <result column="c_job_num" jdbcType="VARCHAR" property="jobNum"/>
+        <result column="c_phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="c_mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="c_address" jdbcType="VARCHAR" property="address"/>
+        <result column="c_cancel" jdbcType="INTEGER" property="cancel"/>
+        <result column="c_ip_address" jdbcType="VARCHAR" property="ipAddress"/>
+        <result column="c_jpush_id" jdbcType="VARCHAR" property="jpushId"/>
+        <result column="c_flag" jdbcType="INTEGER" property="flag"/>
+        <result column="c_create" jdbcType="VARCHAR" property="create"/>
+        <result column="c_creater_id" jdbcType="INTEGER" property="createrId"/>
+        <result column="c_creater_time" jdbcType="TIMESTAMP" property="createrTime"/>
+        <result column="c_update" jdbcType="VARCHAR" property="update"/>
+        <result column="c_updater_id" jdbcType="INTEGER" property="updaterId"/>
+        <result column="c_updater_time" jdbcType="TIMESTAMP" property="updaterTime"/>
+    </resultMap>
+
+    <select id="findById" parameterType="Integer" resultMap="EmployeeMap">
+        select t.* from t_employee t where t.c_id = #{id, jdbcType=INTEGER}
+    </select>
+
+    <select id="findAll" parameterType="hashmap" resultMap="EmployeeMap">
+        select t.* from t_employee t
+    </select>
+</mapper>
